@@ -1,0 +1,49 @@
+copernicus:
+  base_url: "https://catalogue.dataspace.copernicus.eu/odata/v1"
+  stac_url: "https://stac.dataspace.copernicus.eu/v1"
+  auth_url: "https://identity.dataspace.copernicus.eu/auth/realms/CDSE/protocol/openid-connect/token"
+  client_id: "cdse-public"
+  request_timeout_s: 30
+  user_agent: "EOConnect/0.1.0"
+  retry_total: 5
+  retry_backoff_factor: 1.0
+  retry_status_forcelist: [429, 500, 502, 503, 504]
+
+query_defaults:
+  max_cloud_cover_pct: 30.0
+  temporal_buffer_days: 1
+  spatial_buffer_km: 50.0
+  result_limit: 50
+  batch_result_limit: 10
+  batch_log_interval: 10
+  batch_chunk_size: 1000
+
+geometry:
+  km_per_degree_lat: 111.0
+  min_cos_clamp: 0.1
+  min_lat: -90.0
+  max_lat: 90.0
+  min_lon: -180.0
+  max_lon: 180.0
+  lon_wrap: 360.0
+
+collections:
+  sentinel-2: "SENTINEL-2"
+  sentinel-1: "SENTINEL-1"
+  sentinel-3-olci: "SENTINEL-3"
+
+csv_columns:
+  date: "Start date"
+  time: "Start time"
+  latitude: "Start latitude"
+  longitude: "Start longitude"
+  id: "Id"
+  camera_id: "CameraId"
+
+gui_defaults:
+  default_lat: 52.0
+  default_lon: 4.5
+  max_buffer_days: 30
+  max_buffer_km: 500.0
+  min_window_width: 900
+  min_window_height: 700
